@@ -70,7 +70,13 @@ def assemble(source):
             if line.count("=") > 1 or line.count(";") > 1:
                 raise ValueError
             instruction, separator, jump = line.partition(";")
+            if separator and not jump.strip():
+                raise ValueError
+            if "=" in jump:
+                raise ValueError
             dest, equals, comp = instruction.partition("=")
+            if equals and not dest.strip():
+                raise ValueError
             dest = dest.strip() if equals else ""
             comp = comp.strip() if equals else instruction.strip()
             jump = jump.strip() if separator else ""
