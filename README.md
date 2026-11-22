@@ -6,22 +6,20 @@
 
 A hands-on implementation of the Hack computer architecture using HDL, Hack assembly, and Python.
 
-[Capstone Project](capstone/) · [Setup & Testing Guide](capstone/README.md) · [Project Report](capstone/REPORT-TEMPLATE.md)
-
 </div>
 
 ---
 
-## About the project
+## Overview
 
-This repository contains the capstone **“Make the Computer Draw a Box”**, developed as part of the Nand to Tetris – I course at K.R. Mangalam University.
+This repository contains the capstone project **“Make the Computer Draw a Box”**, developed for Nand to Tetris – I at K.R. Mangalam University.
 
 | Component | Description |
 |---|---|
-| **Hardware** | Hack CPU, Memory, and complete Computer chips implemented in HDL |
-| **Assembler** | A two-pass Hack assembler written in Python |
-| **Assembly program** | A keyboard-controlled rectangle rendered on the Hack screen |
-| **Verification** | Official Nand2Tetris test scripts and Python unit tests |
+| Hardware | Hack CPU, Memory, and complete Computer chips implemented in HDL |
+| Assembler | Two-pass Hack assembler written in Python |
+| Assembly program | Keyboard-controlled rectangle rendered on the Hack screen |
+| Verification | Official Nand2Tetris test scripts and Python unit tests |
 
 ## Student details
 
@@ -35,8 +33,6 @@ This repository contains the capstone **“Make the Computer Draw a Box”**, de
 
 ## Personalized specifications
 
-The assignment derives the additional assembler feature and rectangle dimensions from the personal number **K = 58**.
-
 | Calculation | Result |
 |---|---|
 | K mod 3 | 1 — line-numbered assembler error messages |
@@ -46,61 +42,64 @@ The assignment derives the additional assembler feature and rectangle dimensions
 | Starting row | 58 |
 | Starting screen address | 18240 |
 
+The starting address is calculated as `16384 + (32 × 58) = 18240`. The program writes three 16-bit words per row, then advances to the next screen row.
+
 ## Repository structure
 
-~~~text
+All project files are kept directly in the repository root for easy access.
+
+```text
 hack-computer-architecture/
 ├── README.md
-└── capstone/
-    ├── CPU.hdl
-    ├── Memory.hdl
-    ├── Computer.hdl
-    ├── assembler.py
-    ├── test_assembler.py
-    ├── Box.asm
-    ├── Box.hack
-    ├── CPU.tst
-    ├── CPU.cmp
-    ├── Memory.tst
-    ├── Memory.cmp
-    ├── ComputerAdd.tst
-    ├── ComputerAdd.cmp
-    ├── ComputerMax.tst
-    ├── ComputerMax.cmp
-    ├── ComputerRect.tst
-    ├── ComputerRect.cmp
-    └── REPORT-TEMPLATE.md
-~~~
-
-All assignment files are kept together in **one capstone/ directory** at the repository root. There is no second nested capstone/capstone/ directory.
+├── CPU.hdl
+├── Memory.hdl
+├── Computer.hdl
+├── assembler.py
+├── test_assembler.py
+├── Box.asm
+├── Box.hack
+├── Add.hack
+├── Max.hack
+├── Rect.hack
+├── CPU.tst
+├── CPU.cmp
+├── Memory.tst
+├── Memory.cmp
+├── ComputerAdd.tst
+├── ComputerAdd.cmp
+├── ComputerMax.tst
+├── ComputerMax.cmp
+├── ComputerRect.tst
+├── ComputerRect.cmp
+└── REPORT-TEMPLATE.md
+```
 
 ## Quick start
 
-Open a terminal in the capstone/ directory.
+Run these commands from the repository root.
 
 **Assemble the box program**
 
-~~~bash
+```bash
 python assembler.py Box.asm
-~~~
+```
 
-**Run the assembler unit tests**
+**Run assembler unit tests**
 
-~~~bash
+```bash
 python -m unittest -v test_assembler.py
-~~~
+```
 
-For hardware verification, open the capstone/ directory in the Nand2Tetris Hardware Simulator and run the included test scripts. Load Box.hack in the CPU Emulator to test the keyboard-controlled rectangle.
+For hardware verification, open this repository folder in the Nand2Tetris Hardware Simulator and run `CPU.tst`, `Memory.tst`, `ComputerAdd.tst`, `ComputerMax.tst`, and `ComputerRect.tst`. Load `Box.hack` in the CPU Emulator to test the keyboard-controlled rectangle.
 
-## Documentation
+## Documentation and resources
 
-- [Capstone setup and execution guide](capstone/README.md)
-- [Capstone report template and evidence checklist](capstone/REPORT-TEMPLATE.md)
+- [Project report template and evidence checklist](REPORT-TEMPLATE.md)
 - [Official Nand2Tetris project materials](https://github.com/nand2tetris/projects)
 
 ## Verification status
 
-The repository contains the project source files and official test assets. Hardware Simulator runs, official assembler comparisons, and CPU Emulator screenshots must be completed locally and recorded with genuine results. No simulator result is marked as passed before it has actually been verified.
+The repository includes source files and official test assets. Hardware Simulator runs, official assembler comparisons, and CPU Emulator screenshots must be completed locally and recorded with genuine results. No simulator result is marked as passed before it has actually been verified.
 
 ---
 
