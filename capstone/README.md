@@ -47,9 +47,13 @@ For the K = 58 extra feature, test an invalid instruction. The assembler should 
 
 Run your course copies of `Add.asm`, `Max.asm`, `Rect.asm`, and `Pong.asm` through this assembler. Compare each generated `.hack` file with the official assembler output line by line. Record the results in the report.
 
-## Hardware tests
+## Official Hardware test files
 
-Open the three HDL files in the Nand2Tetris Hardware Simulator. Run the supplied official test scripts: `CPU.tst`, `Memory.tst`, `ComputerAdd.tst`, `ComputerMax.tst`, and `ComputerRect.tst`. Save a screenshot of each successful test for the report.
+The official Nand2Tetris Project 5 test scripts and comparison files are included in this folder: `CPU.tst` / `CPU.cmp`, `Memory.tst` / `Memory.cmp`, `ComputerAdd.tst` / `ComputerAdd.cmp`, `ComputerMax.tst` / `ComputerMax.cmp`, and `ComputerRect.tst` / `ComputerRect.cmp`. The required machine-code programs `Add.hack`, `Max.hack`, and `Rect.hack` are included too. These test assets are from the [official Nand2Tetris projects repository](https://github.com/nand2tetris/projects).
+
+## Run the Hardware tests
+
+Open this `capstone` folder in the Nand2Tetris Hardware Simulator and run the five `.tst` scripts listed above. Each test compares its output against the matching `.cmp` file. Save a screenshot of each successful test for the report. The simulator itself must be run locally; no result is marked as passed until you run it.
 
 ## Run the box program
 
