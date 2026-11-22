@@ -27,6 +27,14 @@ class AssemblerTests(unittest.TestCase):
         with self.assertRaisesRegex(AssemblyError, "Line 3: invalid or duplicate label"):
             assemble("(LOOP)\n@0\n(LOOP)")
 
+    def test_missing_jump_condition(self):
+        with self.assertRaisesRegex(AssemblyError, "Line 1: invalid instruction"):
+            assemble("D;")
+
+    def test_missing_destination(self):
+        with self.assertRaisesRegex(AssemblyError, "Line 1: invalid instruction"):
+            assemble("=D")
+
 
 if __name__ == "__main__":
     unittest.main()
