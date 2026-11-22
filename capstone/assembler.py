@@ -12,9 +12,7 @@ COMP = {
     "D&A": "0000000", "D&M": "1000000", "D|A": "0010101", "D|M": "1010101"
 }
 PREDEFINED = {"SP": 0, "LCL": 1, "ARG": 2, "THIS": 3, "THAT": 4, "SCREEN": 16384, "KBD": 24576}
-for i in range(16):
-    PREDEFINED[f"R{i}"] = i
-
+PREDEFINED.update({f"R{i}": i for i in range(16)})
 SYMBOL_PATTERN = re.compile(r"^[A-Za-z_.$:][A-Za-z0-9_.$:]*$")
 
 
@@ -35,16 +33,15 @@ def assemble(source):
     instructions = clean_source(source)
     symbols = dict(PREDEFINED)
     rom_address = 0
-
     for line_number, line in instructions:
         if line.startswith("(") and line.endswith(")"):
             label = line[1:-1].strip()
             if not SYMBOL_PATTERN.fullmatch(label) or label in symbols:
                 raise AssemblyError(f"Line {line_number}: invalid or duplicate label")
             symbols[label] = rom_address
+        elif line.startswith("(") or line.endswith(")"):
+            raise AssemblyError(f"Line {line_number}: invalid label")
         else:
-            if line.startswith("(") or line.endswith(")"):
-                raise AssemblyError(f"Line {line_number}: invalid label")
             rom_address += 1
 
     output = []
@@ -72,15 +69,11 @@ def assemble(source):
         try:
             if line.count("=") > 1 or line.count(";") > 1:
                 raise ValueError
-            if ";" in line:
-                instruction, jump = line.split(";", 1)
-            else:
-                instruction, jump = line, ""
-            if "=" in instruction:
-                dest, comp = instruction.split("=", 1)
-            else:
-                dest, comp = "", instruction
-            dest, comp, jump = dest.strip(), comp.strip(), jump.strip()
+            instruction, separator, jump = line.partition(";")
+            dest, equals, comp = instruction.partition("=")
+            dest = dest.strip() if equals else ""
+            comp = comp.strip() if equals else instruction.strip()
+            jump = jump.strip() if separator else ""
             if comp not in COMP or dest not in DEST or jump not in JUMP:
                 raise ValueError
             output.append("111" + COMP[comp] + DEST[dest] + JUMP[jump])
