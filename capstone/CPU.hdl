@@ -4,7 +4,7 @@ CHIP CPU {
 
     PARTS:
     Not(in=instruction[15], out=isAInstruction);
-    Mux16(a=instruction, b=outM, sel=instruction[15], out=aRegisterIn);
+    Mux16(a=outM, b=instruction, sel=isAInstruction, out=aRegisterIn);
     Or(a=isAInstruction, b=instruction[5], out=loadA);
     ARegister(in=aRegisterIn, load=loadA, out=aOut, out[0..14]=addressM);
     And(a=instruction[15], b=instruction[4], out=loadD);
