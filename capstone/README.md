@@ -55,6 +55,10 @@ The official Nand2Tetris Project 5 test scripts and comparison files are include
 
 Open this `capstone` folder in the Nand2Tetris Hardware Simulator and run the five `.tst` scripts listed above. Each test compares its output against the matching `.cmp` file. Save a screenshot of each successful test for the report. The simulator itself must be run locally; no result is marked as passed until you run it.
 
+## Official assembler comparison programs
+
+Use the official Project 6 source programs for the required comparison: [Add.asm](https://github.com/nand2tetris/projects/tree/main/projects/06/add), [Max.asm](https://github.com/nand2tetris/projects/tree/main/projects/06/max), [Rect.asm](https://github.com/nand2tetris/projects/tree/main/projects/06/rect), and [Pong.asm](https://github.com/nand2tetris/projects/tree/main/projects/06/pong). Copy each source file into this folder, run it with `python assembler.py FileName.asm`, and compare the generated `.hack` file with the official assembler output using the Nand2Tetris Text Comparer or a text diff. Record the real results in the report.
+
 ## Run the box program
 
 1. Open the Hack CPU Emulator.
