@@ -31,7 +31,7 @@ The official test scripts required by the assignment are listed below. Insert th
 | ComputerMax.tst | [Fill after running] | [Insert screenshot] |
 | ComputerRect.tst | [Fill after running] | [Insert screenshot] |
 
-**Built-in chips used instead of older lab chips:** [List only the chips actually used.]
+**Built-in chips used:** `RAM16K`, `Screen`, `Keyboard`, and `ROM32K`. The `ARegister`, `DRegister`, `ALU`, and `PC` components are connected by the CPU implementation.
 
 ## 3. Part B — Python assembler
 
