@@ -43,7 +43,7 @@ In the second pass, A-instructions are converted into 16-bit binary addresses an
 
 For K = 58, the required extra feature is clear error reporting. An invalid instruction produces a message containing its original source line number instead of an unhandled Python traceback.
 
-The assembler includes automated unit tests for A-instruction encoding, C-instruction encoding, label resolution, variable allocation, line-numbered errors, and duplicate-label errors. Run the included unit tests with `python -m unittest -v` from this folder and record the actual result. Do not mark the tests as passed until they have been run.
+The assembler includes automated unit tests for A-instruction encoding, C-instruction encoding, label resolution, variable allocation, line-numbered errors, duplicate-label errors, and malformed C-instruction syntax. Run the included unit tests with `python -m unittest -v` from this folder and record the actual result. Do not mark the tests as passed until they have been run.
 
 **Official comparison results:** Run Add.asm, Max.asm, Rect.asm, and Pong.asm using this assembler. Compare each generated output with the official assembler output and record the actual result below.
 
