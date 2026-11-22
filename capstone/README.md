@@ -33,11 +33,13 @@ python assembler.py Box.asm
 
 This writes `Box.hack` beside `Box.asm`.
 
-Run the assembler unit tests:
+Run the assembler unit tests from this folder:
 
 ```bash
 python -m unittest -v test_assembler.py
 ```
+
+The tests cover A-instruction encoding, C-instruction encoding, label resolution, variable allocation, and line-numbered error handling. Record the real test output in your report.
 
 For the K = 58 extra feature, test an invalid instruction. The assembler should report the original source line, for example `Line 3: invalid instruction`, rather than displaying a Python traceback.
 
