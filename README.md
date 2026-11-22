@@ -1,41 +1,62 @@
+<div align="center">
+
 # Hack Computer Architecture
 
-A hands-on implementation of the **Hack computer** from the *Nand2Tetris* course. This repository contains the hardware description files, assembler implementation, and capstone program developed for **Nand to Tetris – I (ETCCNT301)**.
+**Nand to Tetris – I · ETCCNT301**
 
-## Capstone: Make the Computer Draw a Box
+A hands-on implementation of the Hack computer architecture using HDL, Hack assembly, and Python.
 
-The capstone is maintained in the `capstone/` directory.
+[Capstone Project](capstone/) · [Setup & Testing Guide](capstone/README.md) · [Project Report](capstone/REPORT-TEMPLATE.md)
 
-### Project overview
+</div>
+
+---
+
+## About the project
+
+This repository contains the capstone **“Make the Computer Draw a Box”**, developed as part of the Nand to Tetris – I course at K.R. Mangalam University.
 
 | Component | Description |
 |---|---|
-| Hardware | Hack CPU, Memory, and complete Computer chips in HDL |
-| Assembler | Two-pass Hack assembler implemented in Python |
-| Custom program | Keyboard-controlled rectangle drawing program |
-| Tests | Official Nand2Tetris Hardware Simulator test scripts and comparison files |
-| Documentation | Setup instructions, test checklist, and project report template |
+| **Hardware** | Hack CPU, Memory, and complete Computer chips implemented in HDL |
+| **Assembler** | A two-pass Hack assembler written in Python |
+| **Assembly program** | A keyboard-controlled rectangle rendered on the Hack screen |
+| **Verification** | Official Nand2Tetris test scripts and Python unit tests |
 
-### Personalized specification
+## Student details
 
-- **Student:** S. Aradhana
-- **Roll number:** 2501010358
-- **K:** 58
-- **Assembler extension:** Report invalid instructions with their original source line number (`K mod 3 = 1`).
-- **Box dimensions:** 48 pixels wide × 20 rows high (`K mod 4 = 2`).
-- **Top row:** 58
-- **Starting screen address:** 18240
+| Field | Details |
+|---|---|
+| Name | S. Aradhana |
+| Roll number | 2501010358 |
+| Personal number | K = 58 |
+| Course | Nand to Tetris – I (ETCCNT301) |
+| University | K.R. Mangalam University |
+
+## Personalized specifications
+
+The assignment derives the additional assembler feature and rectangle dimensions from the personal number **K = 58**.
+
+| Calculation | Result |
+|---|---|
+| K mod 3 | 1 — line-numbered assembler error messages |
+| K mod 4 | 2 |
+| Rectangle width | 48 pixels |
+| Rectangle height | 20 rows |
+| Starting row | 58 |
+| Starting screen address | 18240 |
 
 ## Repository structure
 
-```text
+~~~text
 hack-computer-architecture/
+├── README.md
 └── capstone/
-    ├── assembler.py
-    ├── test_assembler.py
     ├── CPU.hdl
     ├── Memory.hdl
     ├── Computer.hdl
+    ├── assembler.py
+    ├── test_assembler.py
     ├── Box.asm
     ├── Box.hack
     ├── CPU.tst
@@ -49,35 +70,43 @@ hack-computer-architecture/
     ├── ComputerRect.tst
     ├── ComputerRect.cmp
     └── REPORT-TEMPLATE.md
-```
+~~~
+
+All assignment files are kept together in **one capstone/ directory** at the repository root. There is no second nested capstone/capstone/ directory.
 
 ## Quick start
 
-Open a terminal in the `capstone/` directory.
+Open a terminal in the capstone/ directory.
 
-Assemble the box program:
+**Assemble the box program**
 
-```bash
+~~~bash
 python assembler.py Box.asm
-```
+~~~
 
-Run the assembler unit tests:
+**Run the assembler unit tests**
 
-```bash
+~~~bash
 python -m unittest -v test_assembler.py
-```
+~~~
 
-For hardware verification, open the `capstone/` directory in the Nand2Tetris Hardware Simulator and run the included `.tst` scripts. Use the CPU Emulator to test `Box.hack`.
+For hardware verification, open the capstone/ directory in the Nand2Tetris Hardware Simulator and run the included test scripts. Load Box.hack in the CPU Emulator to test the keyboard-controlled rectangle.
 
 ## Documentation
 
-See [capstone/README.md](capstone/README.md) for detailed setup and testing instructions, and [capstone/REPORT-TEMPLATE.md](capstone/REPORT-TEMPLATE.md) for the submission report structure.
+- [Capstone setup and execution guide](capstone/README.md)
+- [Capstone report template and evidence checklist](capstone/REPORT-TEMPLATE.md)
+- [Official Nand2Tetris project materials](https://github.com/nand2tetris/projects)
 
 ## Verification status
 
-The source files and official test assets are included in the repository. Hardware Simulator runs, official assembler comparisons, and CPU Emulator screenshots must be completed locally and documented with genuine results. No local simulator result is claimed here unless it has actually been run.
+The repository contains the project source files and official test assets. Hardware Simulator runs, official assembler comparisons, and CPU Emulator screenshots must be completed locally and recorded with genuine results. No simulator result is marked as passed before it has actually been verified.
 
 ---
 
-**Course:** Nand to Tetris – I (ETCCNT301)  
-**University:** K.R. Mangalam University
+<div align="center">
+
+**K.R. Mangalam University**  
+*School of Engineering & Technology*
+
+</div>
